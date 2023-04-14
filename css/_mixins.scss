@@ -1,0 +1,124 @@
+//-------------------------Main variables--------------------------
+//-----------------------------------------------------------------
+$mainFont: 'Josefin Sans', sans-serif;
+$mainH1Color: hsl(0, 6%, 24%);
+$mainPColor: hsl(0, 36%, 70%);
+$errorTextColor: hsl(0, 93%, 68%);
+$light: 300;
+$reg: 400;
+$bold: 500;
+$extraBold: 600;
+$centerContainer: 0 auto;
+$getRid: none;
+$buildBorder: 1px solid red;
+
+//---------------------useful layout mixins------------------------
+//-----------------------------------------------------------------
+@mixin mainContainer {
+    min-width: 100%;
+    min-height: 100vh;
+    background-color: hsl(0, 2%, 18%);
+    //border: $buildBorder;
+
+    @include largeMobile {
+       @include flexAlignStart; //yesss! the fix!!!!!!!!!
+    }
+}
+
+@mixin mobContainer {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: $centerContainer;
+    //border: $buildBorder;
+}
+
+@mixin mobNavContainer {
+    width: 80%;
+    margin: $centerContainer;
+    //border: $buildBorder;
+}
+
+@mixin colContainer {
+    max-width: 80%;
+    min-height: 80vh;
+    //border: $buildBorder;
+
+    @include largeMobile {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+}
+
+@mixin colInfoContainer {
+    width: 60%;
+    min-height: 80vh; //maybe
+    margin: $centerContainer;
+    padding: 30px 0 30px 0;
+    //border: $buildBorder;
+
+    @include largeMobile {
+        width: 100%;
+    }
+}
+
+//-------------------------Flex mixins-----------------------------
+//-----------------------------------------------------------------
+@mixin flexAllCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexAlignCenter {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flexAlignStart {
+    display: flex;
+    align-items: start;
+}
+
+@mixin rowStackReverse {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+//-----------------------responsive mixins-------------------------
+//-----------------------------------------------------------------
+@mixin laptop {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: 850px) {
+        @content;
+    }
+}
+
+@mixin largeMobile {
+    @media (max-width: 570px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 390px) {
+        @content;
+    }
+}
+
+@mixin fold {
+    @media (max-width: 330px) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}

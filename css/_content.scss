@@ -1,0 +1,285 @@
+/*.main-container, .mob-container {
+    display: $getRid;
+
+    @include largeMobile {
+        @include mobNavContainer;
+
+        .mobile-navbar {
+            background-color: hsl(100 100 100);
+            padding: 15px 0 15px 0;
+    
+            .mobile-nav-logo {
+                max-width: 25%;
+            }
+        }
+    }
+}*/
+
+.main-container {
+    @include mainContainer;
+
+    @include largeMobile {
+        @include flexAlignStart;
+        display: $getRid; //nah
+    }
+
+    .mob-container {
+        display: $getRid;
+
+        @include largeMobile {
+            display: block;
+            @include mobContainer;
+        }
+    }
+
+    .col-container {
+        max-width: 80%;
+        min-height: 80vh;
+        //border: $buildBorder;
+    
+        @include largeMobile {
+            max-width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .row {
+
+            .col1 {
+    
+                .info-container {
+                    @include colInfoContainer;
+
+                    @include largeMobile {
+                        padding: 0;
+                    }
+
+                    .logo-div {
+                        //border: $buildBorder;
+                
+                        .main-logo {
+                            max-width: 30%;
+                            //border: $buildBorder; 
+                        }
+
+                        @include largeMobile {
+                            display: $getRid;
+                        }
+                    }
+    
+                    .main-h1 {
+                        font-family: $mainFont;
+                        font-size: 35px;
+                        font-weight: $extraBold;
+                        color: $mainH1Color;
+                        letter-spacing: 8px;
+                        margin-top: 60px;
+                        margin-bottom: 15px;
+                        //border: $buildBorder;
+
+                        @include largeMobile {
+                            font-size: 40px;
+                            text-align: center;
+                            padding-top: 50px;
+                            width: 60%;
+                            margin: $centerContainer;
+                        }
+
+                        @include fold {
+                            font-size: 30px;
+                        }
+
+                        @include large {
+                            font-size: 55px;
+                            letter-spacing: 12px;
+                            line-height: 60px;
+                            margin-top: 80px
+                        }
+    
+                        span {
+                            color: $mainPColor;
+                            font-weight: $light;
+
+                            @include large {
+                                font-size: 55px;
+                            }
+                        }
+                    }
+
+                    .main-p {
+                        font-family: $mainFont;
+                        font-size: 8px;
+                        color: $mainPColor;
+                        font-weight: $bold;
+                        line-height: 14px;
+                        max-width: 75%;
+                        margin-bottom: 22px;
+                        //border: $buildBorder;
+
+                        @include largeMobile {
+                            text-align: center;
+                            margin: $centerContainer;
+                            font-size: 13px;
+                            line-height: 18px;
+                            margin-top: 15px;
+                        }
+
+                        @include large {
+                            font-size: 14px;
+                            line-height: 20px;
+                            min-width: 95%;
+                            margin-bottom: 30px;
+                        }
+                    }
+
+                    form {
+
+                        .form-div {
+                            position: relative;
+                            width: 75%;
+                            @include flexAlignCenter;
+                            //border: $buildBorder;
+
+                            @include largeMobile {
+                                margin: $centerContainer;
+                                padding-top: 30px;
+                            }
+
+                            @include large {
+                                min-width: 90%;
+                            }
+
+                            input {
+
+                                &.error {
+                                    border: 1.5px solid $errorTextColor;
+                                }
+                            }
+
+                            .main-input {
+                                display: inline-block;
+                                min-width: 100%;
+                                padding: 9px 0 9px 15px;
+                                font-family: $mainFont;
+                                font-size: 9px;
+                                font-weight: $reg;
+                                border: 1px solid rgb(216, 211, 211);
+                                border-radius: 20px;
+                                outline: $getRid;
+
+                                &::placeholder {
+                                    color: hsl(0, 36%, 86%);
+                                }
+
+                                @include largeMobile {
+                                    padding: 18px 0 18px 20px;
+                                    font-size: 13px;
+                                }
+
+                                @include large {
+                                    padding: 15px 0 15px 20px;
+                                    font-size: 13px;
+                                }
+                            }
+
+                            .input-btn {
+                                padding: 6px 18px 6px 18px;
+                                margin: -50px;
+                                background-image: linear-gradient(90deg, hsl(0, 36%, 76%), hsl(0, 73%, 70%));
+                                cursor: pointer;
+                                border: none;
+                                border-radius: 30px;
+                                box-shadow: 0px 5px 10px hsla(0, 36%, 70%, 0.751); 
+
+                                &:hover {
+                                    background-image: linear-gradient(90 deg, $mainPColor);
+                                }
+
+                                .btn-arrow {
+                                    width: 60%;
+                                    //border: $buildBorder;
+
+                                    @include largeMobile {
+                                        width: 90%;
+                                    }
+
+                                    @include large {
+                                        width: 80%;
+                                    }
+                                }
+
+                                @include largeMobile {
+                                    padding: 15px 28px 15px 28px;
+                                    border-radius: 30px;
+                                    margin: -62px;
+                                }
+
+                                @include large {
+                                    padding: 14px 35px 14px 35px;
+                                }
+                            }
+                        }
+
+                        //validation error text--------
+                        .error-box {
+                            display: $getRid;
+                            position: absolute;
+                            padding: 5px 0 5px 0;
+                            //border: $buildBorder;
+
+                            @include largeMobile {
+                                padding-left: 15%;
+                            }
+
+                            &.show {
+                                display: block;
+                            }
+
+                            .error-p {
+                                font-family: $mainFont;
+                                font-size: 8px;
+                                color: $errorTextColor;
+                                padding-left: 12px; 
+                                margin: 0;
+                                //border: $buildBorder; 
+
+                                @include largeMobile {
+                                    font-size: 10px;
+                                }
+
+                                @include large {
+                                    padding-left: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .col2 {
+
+                .main-image {
+                    display: block;
+                    width: 100%;
+                    min-height: 100%;
+
+                    @include largeMobile {
+                        display: $getRid;
+                    }
+                }
+
+                .main-image-mob {
+                    display: $getRid;
+
+                    @include largeMobile {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+//----------------------------Imports------------------------------
+//-----------------------------------------------------------------
+@import "./mixins";
+@import "./content";
+
+//-------------------------General fixes---------------------------
+//-----------------------------------------------------------------
+* {
+    box-sizing: border-box;
+}
+
+html body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+//-----------------------useful layout stuff-----------------------
+//-----------------------------------------------------------------
+.main-container {
+    min-width: 100%;
+    min-height: 100vh;
+    background-color: hsl(0, 2%, 18%);
+    //border: $buildBorder;
+    @include mainContainer;
+    @include flexAllCenter;
+}
+
+.mob-container {
+    @include mobContainer;
+}
+
+.row {
+    display: flex;
+
+    @include largeMobile {
+        @include rowStackReverse;
+    }
+}
+
+.col1 {
+    flex: 0 0 60%;
+    background-color: hsl(100 100 100);
+    background-image: url("../images/bg-pattern-desktop.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //border: $buildBorder;
+}
+
+.col2 {
+    flex: 0 0 40%;
+    //border: $buildBorder;
+}
